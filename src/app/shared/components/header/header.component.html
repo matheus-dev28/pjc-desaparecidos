@@ -1,0 +1,46 @@
+<header class="bg-gradient-to-r from-[#111827] to-[#1B2B4D]">
+  <div class="flex flex-wrap items-center justify-between gap-4 w-full max-w-[1200px] 2xl:max-w-[1440px] mx-auto text-white p-4">
+
+    <div class="flex items-center gap-2">
+      <img src="assets/logos/logo-pjc.svg" alt="logo" class="w-10 h-10">
+      <div>
+        <h1 class="text-2xl font-bold">Portal Desaparecidos</h1>
+        <span class="text-gray-300">Seletivo Desenvolve MT 2025</span>
+      </div>
+    </div>
+
+    <div class="hidden md:flex flex-col items-end">
+      <span class="text-gray-300">Dev Júnior</span>
+      <span class="font-bold text-xl mb-2">Matheus Lé</span>
+      <div class="flex gap-2">
+        <a href="https://www.linkedin.com/in/matheusle/" target="_blank">
+          <img src="assets/logos/linkedin.png" alt="linkedin" class="w-6" title="linkedin">
+        </a>
+        <a href="https://github.com/matheus-dev28" target="_blank">
+          <img src="assets/logos/github.png" alt="github" class="w-6" title="github">
+        </a>
+      </div>
+    </div>
+
+    <!-- Botão hamburguer (mobile) -->
+    <button (click)="menuOpen = !menuOpen" class="md:hidden flex flex-col gap-1">
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+      <span class="w-6 h-0.5 bg-white"></span>
+    </button>
+  </div>
+
+  <!-- Menu dropdown (mobile) -->
+  <div *ngIf="menuOpen" class="md:hidden bg-[#1B2B4D] p-4 text-center text-white">
+    <span class="block text-gray-300">Dev Júnior</span>
+    <span class="block font-bold text-xl mb-2">Matheus Lé</span>
+    <div class="flex justify-center gap-4">
+      <a href="https://www.linkedin.com/in/matheusle/" target="_blank">
+        <img src="assets/logos/linkedin.png" alt="linkedin" class="w-6" title="linkedin">
+      </a>
+      <a href="https://github.com/matheus-dev28" target="_blank">
+        <img src="assets/logos/github.png" alt="github" class="w-6" title="github">
+      </a>
+    </div>
+  </div>
+</header>
