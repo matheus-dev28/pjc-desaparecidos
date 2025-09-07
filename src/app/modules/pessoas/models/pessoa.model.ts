@@ -19,6 +19,12 @@ export interface IPessoaFiltro {
   status?: '' | 'DESAPARECIDO' | 'LOCALIZADO';
 }
 
+export interface IOcorrenciaEntrevDesapDTO {
+  informacao?: string;
+  vestimentasDesaparecido?: string;
+}
+
+
 export interface IOcorrencia {
   ocoId: number;
   dtDesaparecimento?: string;      
@@ -26,6 +32,7 @@ export interface IOcorrencia {
   encontradoVivo?: boolean;
   localDesaparecimentoConcat?: string;
   listaCartaz?: ICartaz[];
+  ocorrenciaEntrevDesapDTO?: IOcorrenciaEntrevDesapDTO;
 }
 
 export interface ICartaz {

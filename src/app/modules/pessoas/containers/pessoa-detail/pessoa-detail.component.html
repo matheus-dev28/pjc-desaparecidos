@@ -13,7 +13,7 @@
         <img
           [src]="foto(p)"
           alt="{{ p.nome }}"
-          class="w-full md:w-[320px] h-[400px] object-cover border rounded-lg shadow"
+          class="w-full md:w-[320px] h-[450px] object-cover border rounded-lg shadow"
           loading="lazy"
           decoding="async"
           (error)="onImgError($event)"
@@ -55,15 +55,14 @@
             {{ p.ultimaOcorrencia?.localDesaparecimentoConcat || 'Não informado' }}
           </div>
 
-          <!-- Campos opcionais, mostrados se existirem -->
-          <div class="text-sm text-gray-800 mb-1" *ngIf="$any(p).ultimaOcorrencia?.vestimenta">
+          <div class="text-sm text-gray-800 mb-1" >
             <span class="font-semibold">Vestimenta:</span>
-            {{$any(p).ultimaOcorrencia?.vestimenta}}
+            {{p.ultimaOcorrencia?.ocorrenciaEntrevDesapDTO?.vestimentasDesaparecido || 'Não informado'}}
           </div>
 
-          <div class="text-sm text-gray-800 mb-2" *ngIf="$any(p).ultimaOcorrencia?.informacoesAdicionais">
+          <div class="text-sm text-gray-800 mb-2">
             <span class="font-semibold">Informações adicionais:</span>
-            {{$any(p).ultimaOcorrencia?.informacoesAdicionais}}
+            {{p.ultimaOcorrencia?.ocorrenciaEntrevDesapDTO?.informacao || 'Sem informações adicionais'}}
           </div>
 
           <div
