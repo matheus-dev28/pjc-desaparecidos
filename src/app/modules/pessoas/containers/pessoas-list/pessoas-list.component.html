@@ -1,6 +1,6 @@
 <section class="bg-[url('assets/banner/desaparecidos.png')] bg-cover">
   <div class="flex items-center justify-between w-full max-w-[1200px] 2xl:max-w-[1440px] mx-auto">
-    <app-pessoas-search class="p-6"></app-pessoas-search>
+    <app-pessoas-search class="p-6"  (filtroChange)="onFiltro($event)"></app-pessoas-search>
 
     <div class="flex gap-24 text-white pr-32" *ngIf="estatistica$ | async as estatistica">
       <div class="flex flex-col items-center">

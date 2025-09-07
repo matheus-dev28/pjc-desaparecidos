@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { PessoasSearchComponent } from '../../components/pessoas-search/pessoas-search.component';
 import { PessoasFacade } from '../../state/pessoas.facade';
-import { IPessoa } from '../../models/pessoa.model';
+import { IPessoa, IPessoaFiltro } from '../../models/pessoa.model';
 
 @Component({
   selector: 'app-pessoas-list',
@@ -33,6 +33,10 @@ export class PessoasListComponent implements OnInit {
   ngOnInit() {
     this.facade.loadEstatistica();
     this.facade.setParams({ pagina: 0, porPagina: 12, status: 'DESAPARECIDO' });
+  }
+
+    onFiltro(f: Partial<IPessoaFiltro>) {
+    this.facade.setParams({ ...f, porPagina: this.pageSizeValue });
   }
 
   onPage(e: PageEvent) {

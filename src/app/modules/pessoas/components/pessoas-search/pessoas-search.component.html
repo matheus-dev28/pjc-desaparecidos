@@ -4,7 +4,7 @@
         Digite as informações conhecidas para uma busca mais precisa
     </p>
 
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="buscar()">
 
     <!-- Nome -->
     <mat-form-field appearance="fill" class="w-full">
@@ -51,12 +51,12 @@
 
     <!-- Botões -->
     <div class="flex justify-end gap-4 mt-4">
-        <button mat-flat-button color="warn">
+        <button mat-flat-button color="warn" type="button" (click)="limpar()">
             <mat-icon>clear</mat-icon>
             LIMPAR
         </button>
 
-        <button mat-flat-button color="primary">
+        <button mat-flat-button color="primary" type="submit">
             <mat-icon>search</mat-icon>
             BUSCAR
         </button>
