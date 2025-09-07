@@ -4,6 +4,14 @@ import { PessoasListComponent } from './modules/pessoas/containers/pessoas-list/
 export const routes: Routes = [
     {
         path: '',
-        loadComponent: () => import('./modules/pessoas/containers/pessoas-list/pessoas-list.component').then(m => m.PessoasListComponent)
+        loadComponent: () => 
+            import('./modules/pessoas/containers/pessoas-list/pessoas-list.component')
+                .then(m => m.PessoasListComponent)
+    },
+    {
+        path: 'pessoa/:id',
+        loadComponent: () => 
+            import('./modules/pessoas/containers/pessoa-detail/pessoa-detail.component')
+                .then(m => m.PessoaDetailComponent)
     }
 ];
