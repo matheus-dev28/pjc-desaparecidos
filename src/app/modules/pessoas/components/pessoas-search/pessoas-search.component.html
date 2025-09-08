@@ -1,65 +1,63 @@
-<div class="flex flex-col w-[500px] p-6 bg-white rounded-xl shadow">
-    <span class="text-xl font-bold text-center">Busca</span>
-    <p class="text-sm text-gray-600 text-center">
-        Digite as informações conhecidas para uma busca mais precisa
-    </p>
+<div class="flex flex-col w-full max-w-[500px] p-4 sm:p-6 bg-white rounded-xl shadow">
+  <span class="text-xl font-bold text-center">Busca</span>
+  <p class="text-sm text-gray-600 text-center">
+    Digite as informações conhecidas para uma busca mais precisa
+  </p>
 
-    <form [formGroup]="form" (ngSubmit)="buscar()">
-
+  <form [formGroup]="form" (ngSubmit)="buscar()">
     <!-- Nome -->
     <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome" placeholder="Digite o nome" />
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" placeholder="Digite o nome" />
     </mat-form-field>
 
     <!-- Faixa Etária -->
     <div>
-        <span class="font-semibold text-md">Faixa Etária:</span>
-        <div class="flex gap-4 mt-2">
-            <mat-form-field appearance="fill" class="w-full">
-                <mat-label>Mínima</mat-label>
-                <input matInput type="number" formControlName="idadeMin" />
-            </mat-form-field>
+      <span class="font-semibold text-md">Faixa Etária:</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Mínima</mat-label>
+          <input matInput type="number" formControlName="idadeMin" />
+        </mat-form-field>
 
-            <mat-form-field appearance="fill" class="w-full">
-                <mat-label>Máxima</mat-label>
-                <input matInput type="number" formControlName="idadeMax" />
-            </mat-form-field>
-        </div>
+        <mat-form-field appearance="fill" class="w-full">
+          <mat-label>Máxima</mat-label>
+          <input matInput type="number" formControlName="idadeMax" />
+        </mat-form-field>
+      </div>
     </div>
 
+    <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12">
+      <!-- Sexo -->
+      <div>
+        <span class="font-semibold text-sm">Sexo:</span>
+        <mat-radio-group class="flex flex-col" formControlName="sexo">
+          <mat-radio-button value="MASCULINO">Masculino</mat-radio-button>
+          <mat-radio-button value="FEMININO">Feminino</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <!-- Status -->
 
-    <div class="flex justify-center gap-12">
-        <!-- Sexo -->
-        <div>
-            <span class="font-semibold text-sm">Sexo:</span>
-            <mat-radio-group class="flex flex-col" formControlName="sexo">
-                <mat-radio-button value="MASCULINO">Masculino</mat-radio-button>
-                <mat-radio-button value="FEMININO">Feminino</mat-radio-button>
-            </mat-radio-group>
-        </div>
-
-        <!-- Status -->
-        <div>
-            <span class="font-semibold text-sm">Status:</span>
-            <mat-radio-group class="flex flex-col" formControlName="status">
-                <mat-radio-button value="Desaparecido">Desaparecido</mat-radio-button>
-                <mat-radio-button value="Localizado">Localizado</mat-radio-button>
-            </mat-radio-group>
-        </div>
+      <div>
+        <span class="font-semibold text-sm">Status:</span>
+        <mat-radio-group class="flex flex-col" formControlName="status">
+          <mat-radio-button value="Desaparecido">Desaparecido</mat-radio-button>
+          <mat-radio-button value="Localizado">Localizado</mat-radio-button>
+        </mat-radio-group>
+      </div>
     </div>
 
     <!-- Botões -->
-    <div class="flex justify-end gap-4 mt-4">
-        <button mat-flat-button color="warn" type="button" (click)="limpar()">
-            <mat-icon>clear</mat-icon>
-            LIMPAR
-        </button>
+    <div class="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 mt-4">
+      <button mat-flat-button color="warn" type="button" (click)="limpar()" class="w-full sm:w-auto">
+        <mat-icon>clear</mat-icon>
+        LIMPAR
+      </button>
 
-        <button mat-flat-button color="primary" type="submit">
-            <mat-icon>search</mat-icon>
-            BUSCAR
-        </button>
+      <button mat-flat-button color="primary" type="submit" class="w-full sm:w-auto">
+        <mat-icon>search</mat-icon>
+        BUSCAR
+      </button>
     </div>
-    </form>
+  </form>
 </div>
