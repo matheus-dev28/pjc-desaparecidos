@@ -75,7 +75,8 @@
           <div class="mt-4">
             <a mat-flat-button
                [color]="status(p)==='DESAPARECIDO' ? 'warn' : 'primary'"
-               class="text-white">
+               class="text-white"
+               (click)="abrirFormulario(p)">
               <mat-icon>campaign</mat-icon>
               VIU OU SABE DESSA PESSOA?
             </a>

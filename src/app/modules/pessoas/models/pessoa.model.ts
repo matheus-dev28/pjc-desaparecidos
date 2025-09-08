@@ -1,4 +1,3 @@
-// pessoa.model.ts
 export interface IPessoa {
   id: number;
   nome: string;
@@ -44,4 +43,9 @@ export interface ICartaz {
     | 'JPG_LOCALIZADO'
     | 'INSTA_DESAPARECIDO'
     | 'INSTA_LOCALIZADO';
+}
+
+export interface IPessoaFormData {
+  ocoId: number;
+  nome?: string;
 }

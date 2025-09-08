@@ -6,11 +6,18 @@ import { IPessoa } from '../../models/pessoa.model';
 import { map, switchMap, catchError, of, shareReplay } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { PessoaFormComponent } from '../../components/pessoa-form/pessoa-form.component';
 
 @Component({
   selector: 'app-pessoa-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatDialogModule],
   templateUrl: './pessoa-detail.component.html',
   styleUrls: ['./pessoa-detail.component.scss']
 })
@@ -22,7 +29,11 @@ export class PessoaDetailComponent {
     shareReplay(1)
   );
 
-  constructor(private route: ActivatedRoute, private facade: PessoasFacade) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private facade: PessoasFacade,
+    private dialog: MatDialog
+  ) {}
 
   foto(p: IPessoa): string {
     const direta = (p.urlFoto || '').trim();
@@ -80,5 +91,18 @@ export class PessoaDetailComponent {
     const link = this.cartazJpgOuPdf(p) || this.cartazInsta(p) || window.location.href;
     const msg = `${this.statusLabel(p)}: ${p.nome}. Veja o cartaz: ${link}`;
     return 'https://wa.me/?text=' + encodeURIComponent(msg);
+  }
+
+   abrirFormulario(p: IPessoa) {
+    const ocoId = p.ultimaOcorrencia?.ocoId;
+    if (!ocoId) return;
+
+    this.dialog.open(PessoaFormComponent, {
+      data: { ocoId, nome: p.nome },
+      width: '560px'
+    }).afterClosed().subscribe((ok) => {
+      if (ok) {
+      }
+    });
   }
 }

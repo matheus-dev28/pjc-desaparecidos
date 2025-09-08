@@ -1,0 +1,93 @@
+<div class="flex flex-col gap-4 p-6">
+    <span class="font-medium text-xl">
+        Enviar informação {{ data.nome ? 'sobre ' + data.nome : '' }}
+    </span>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()">
+
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Descrição</mat-label>
+                <textarea matInput rows="3" formControlName="descricao"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="w-full">
+              <mat-label>Data</mat-label>
+              <input
+                matInput
+                [matDatepicker]="dp"
+                formControlName="data"
+                placeholder="dd/mm/aaaa"
+              />
+              <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+              <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
+
+            <div class="space-y-2">
+            
+            <!-- Dropzone -->
+            <div
+                class="border-2 border-dashed rounded-xl p-5 text-center cursor-pointer transition
+                       hover:border-blue-400 hover:bg-blue-50"
+                [class.border-blue-500]="dragging"
+                [class.bg-blue-50]="dragging"
+                (dragover)="onDragOver($event)"
+                (dragleave)="onDragLeave($event)"
+                (drop)="onDrop($event)"
+                (click)="fileInput.click()"
+                role="button"
+                tabindex="0"
+                (keydown.enter)="$event.preventDefault(); fileInput.click()"
+              >
+                <div class="grid place-items-center gap-1">
+                  <mat-icon class="text-3xl text-gray-400">cloud_upload</mat-icon>
+                  <div>Arraste e solte suas fotos aqui</div>
+                  <div class="text-xs text-gray-500">ou clique para selecionar</div>
+                </div>
+                <input
+                  #fileInput
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  (change)="onFiles($event)"
+                  class="hidden"
+                />
+              </div>
+          
+              <!-- Lista de arquivos -->
+              <div *ngIf="arquivos.length" class="space-y-2">
+                <div class="text-xs text-gray-600">
+                  {{ arquivos.length }} arquivo(s) selecionado(s)
+                </div>
+            
+                <div
+                  *ngFor="let f of arquivos; let i = index"
+                  class="flex items-center gap-2 border rounded-lg px-3 py-2"
+                >
+                  <mat-icon class="text-gray-400">insert_drive_file</mat-icon>
+                  <span class="flex-1 truncate text-sm">{{ f.name }}</span>
+                  <button
+                    type="button"
+                    class="text-sm text-red-600 hover:underline"
+                    (click)="removerArquivo(i)"
+                  >
+                    remover
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="erro" class="text-red-700 bg-red-100 border border-red-200 px-3 py-2 rounded">
+                {{ erro }}
+            </div>
+
+        <div class="flex justify-end gap-2 mt-4">
+            <button mat-stroked-button (click)="cancelar()" [disabled]="carregando">
+                Cancelar
+            </button>
+            <button mat-flat-button color="primary"  type="submit" [disabled]="carregando">
+                <mat-icon>send</mat-icon>
+                Enviar
+            </button>
+        </div>
+    </form>
+</div>

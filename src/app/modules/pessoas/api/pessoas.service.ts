@@ -1,4 +1,3 @@
-// pessoas.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -37,5 +36,12 @@ export class PessoasService {
 
   getEstatistica(): Observable<IEstatistica> {
     return this.http.get<IEstatistica>(`${this.base}/v1/pessoas/aberto/estatistico`);
+  }
+
+  enviarInformacoes(formInforma: FormData): Observable<any> {
+    return this.http.post(
+      `${this.base}/v1/ocorrencias/informacoes-desaparecido`,
+      formInforma
+    );
   }
 }
