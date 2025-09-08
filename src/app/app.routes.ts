@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { PessoasListComponent } from './modules/pessoas/containers/pessoas-list/pessoas-list.component';
-import { PageNotFoundComponent } from './modules/pessoas/components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
     {
