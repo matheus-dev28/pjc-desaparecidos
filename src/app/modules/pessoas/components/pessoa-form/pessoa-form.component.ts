@@ -9,6 +9,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { PessoasService } from '../../api/pessoas.service';
+import { MatDialog } from '@angular/material/dialog';
+import { FeedbackDialogComponent } from '../../components/feedback-dialog/feedback-dialog.component';
 
 export interface PessoaFormData {
   ocoId: number;
@@ -48,6 +50,7 @@ export class PessoaFormComponent {
     private fb: FormBuilder,
     private service: PessoasService,
     private ref: MatDialogRef<PessoaFormComponent>,
+     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: PessoaFormData
   ) {}
 
@@ -124,15 +127,20 @@ export class PessoaFormComponent {
     }
 
     this.service.enviarInformacoes(formData).subscribe({
-      next: () => {
-        this.carregando = false;
-        this.ref.close(true);
-      },
-      error: () => {
-        this.carregando = false;
-        this.erro = 'Não foi possível enviar. Tente novamente.';
-      }
-    });
+    next: () => {
+      this.carregando = false;
+      this.dialog.open(FeedbackDialogComponent, {
+        data: { success: true, message: 'Informação enviada com sucesso!' }
+      });
+      this.ref.close(true);
+    },
+    error: () => {
+      this.carregando = false;
+      this.dialog.open(FeedbackDialogComponent, {
+        data: { success: false, message: 'Erro ao enviar informações. Tente novamente.' }
+      });
+    }
+  });
   }
 
   cancelar() {

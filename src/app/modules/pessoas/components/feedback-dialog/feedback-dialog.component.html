@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center justify-center p-6 text-center">
+  <img
+    *ngIf="data.success"
+    src="assets/icon/check.png"
+    alt="Sucesso"
+    class="w-20 h-20 mb-4"
+  />
+  <img
+    *ngIf="!data.success"
+    src="assets/icon/fail.png"
+    alt="Erro"
+    class="w-20 h-20 mb-4"
+  />
+
+  <span class="text-lg font-semibold">
+    {{ data.message }}
+  </span>
+</div>
