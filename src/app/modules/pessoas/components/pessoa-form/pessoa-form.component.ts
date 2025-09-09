@@ -41,6 +41,8 @@ export class PessoaFormComponent {
   arquivos: File[] = [];
   dragging = false;
 
+  today = new Date();
+
   form = this.fb.group({
     descricao: ['', [Validators.required, Validators.maxLength(2000)]],
     data: [null as Date | null, Validators.required]
@@ -50,7 +52,7 @@ export class PessoaFormComponent {
     private fb: FormBuilder,
     private service: PessoasService,
     private ref: MatDialogRef<PessoaFormComponent>,
-     private dialog: MatDialog,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: PessoaFormData
   ) {}
 
@@ -100,7 +102,7 @@ export class PessoaFormComponent {
     this.arquivos.splice(i, 1);
   }
 
-    private toYMD(dt: Date | null): string {
+  private toYMD(dt: Date | null): string {
     if (!dt) return '';
     const yyyy = dt.getFullYear();
     const mm = String(dt.getMonth() + 1).padStart(2,'0');

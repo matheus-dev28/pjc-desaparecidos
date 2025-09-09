@@ -17,6 +17,8 @@
                 [matDatepicker]="dp"
                 formControlName="data"
                 placeholder="dd/mm/aaaa"
+                [max]="today"
+                maxlength="10"
               />
               <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
               <mat-datepicker #dp></mat-datepicker>
