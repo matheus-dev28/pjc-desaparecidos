@@ -5,13 +5,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { routes } from './app.routes';
-import { contentTypeInterceptor } from './core/interceptor/content-type.interceptor';
+import { errorInterceptor } from './core/interceptor/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([contentTypeInterceptor])),
+    provideHttpClient(withInterceptors([errorInterceptor])),
     importProvidersFrom(ReactiveFormsModule),
     provideNativeDateAdapter(), 
   ]
