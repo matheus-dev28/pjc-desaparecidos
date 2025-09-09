@@ -33,7 +33,7 @@ A interface foi construída em **Angular** com **Tailwind CSS** e **Angular Mate
 ## Instalação e Execução
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/pjc-desaparecidos.git
+git clone https://github.com/matheus-dev28/pjc-desaparecidos.git
 cd pjc-desaparecidos
 ```
 ### 2. Instalar dependências
