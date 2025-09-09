@@ -1,10 +1,13 @@
 # Projeto PJC Desaparecidos
 Aplicação desenvolvida como parte do processo seletivo do **Desenvolve MT 2025**, destinada à consulta pública de pessoas desaparecidas.
+
 A interface foi construída em **Angular** com **Tailwind CSS** e **Angular Material**, consumindo dados fornecidos pela **Polícia Judiciária Civil de Mato Grosso (PJC-MT)**.
+
 **Aplicação em produção:** [pjc-desaparecidos.vercel.app](https://pjc-desaparecidos.vercel.app)
 ---
 ## Dados do Candidato
 - Nome: Matheus Henrique Aristimunha Lé
+- Cargo: Desenvolvedor Júnior
 - E-mail: matheushale@gmail.com
 - Telefone: (65) 9 99614-5345
 ---
