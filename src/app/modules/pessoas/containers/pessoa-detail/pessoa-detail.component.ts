@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { PessoaFormComponent } from '../../components/pessoa-form/pessoa-form.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-pessoa-detail',
@@ -17,7 +18,9 @@ import { PessoaFormComponent } from '../../components/pessoa-form/pessoa-form.co
     RouterModule, 
     MatButtonModule, 
     MatIconModule, 
-    MatDialogModule],
+    MatDialogModule,
+    MatProgressSpinnerModule 
+  ],
   templateUrl: './pessoa-detail.component.html',
   styleUrls: ['./pessoa-detail.component.scss']
 })
