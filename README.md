@@ -9,7 +9,7 @@ A interface foi construída em **Angular** com **Tailwind CSS** e **Angular Mate
 - Nome: Matheus Henrique Aristimunha Lé
 - Cargo: Desenvolvedor Júnior
 - E-mail: matheushale@gmail.com
-- Telefone: (65) 9 99614-5345
+- Telefone: (65) 99614-5345
 ---
 ## Tecnologias Utilizadas
 - Angular 18
